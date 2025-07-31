@@ -1,9 +1,15 @@
-# Hello world
-### C++ program
+# Hello World
 
-In this chapter, we will write C++ source code that prints a greeting in screen, compile the source code to create a program and then execute the program. Source code or code is human readable text. It can be opened using notepad and read by a human because its just text. Source codes are NOT programs. Our laptops or smartphones cannot execute source code. Special programs called `compilers` create programs from source code. The output of compilers are programs which can be executed by laptops and smartphones, and such compiled programs cannot be opened using notepad. (To read the contents of a program, you need to use something called `hex editor`). The process of creating a program from source code is called `compilation`.
+Let's learn how to make a computer say hello! We'll do this in two ways: using C++ and using a shell script (bash).
 
-Save the following source code as `main.cpp`. 
+---
+
+## 1. C++ Program
+
+A C++ program is written as text (called source code). Computers can't run this text directly. We need a special tool called a **compiler** to turn our code into a program the computer can run.
+
+Here's a simple C++ program. Save it as `main.cpp`:
+
 ```cpp
 #include <iostream>
 
@@ -14,43 +20,72 @@ int main(int argc, char **argv)
 }
 ```
 
-**To compile**: `$ clang++ main.cpp`
-
-This will compile `main.cpp` and creates a program in the same directory. By default the filename of the program will be `a.out`.
-
-**To execute**: `$ ./a.out`
-
-We can tell the compiler to give a custom name to our program using the `-o` flag.
-
-**Compile again**: `$ clang++ main.cpp -o hello`
-
-**Execute**: `$ ./hello`
-
-### Shell script
-
-We will do the same using bash. In bash, the `echo` command helps us write text to the screen just like the C++ `cout` operator.
-
-Execute the following command in bash shell.
+**To compile:**
 ```bash
-$ echo "Hello, bash"
+clang++ main.cpp
+```
+This makes a program called `a.out` in the same folder.
+
+**To run the program:**
+```bash
+./a.out
+```
+You should see `Hello, C++` on the screen!
+
+If you want to name your program something else, use the `-o` option:
+```bash
+clang++ main.cpp -o hello
+./hello
 ```
 
-You should be able to see the `Hello, bash` written to the screen. 
+---
 
-Now save the above echo command as a text file with name `hello.sh`. Lets try executing it. 
+## 2. Bash Script
 
-**To execute**: `$ ./hello.sh`
+Bash is a simple way to tell your computer what to do using commands. The `echo` command prints text to the screen.
 
-You must be seeing an error `bash: ./hello.sh: Permission denied`.
+Try this in your terminal:
+```bash
+echo "Hello, bash"
+```
+You should see `Hello, bash` printed out.
 
-#### Script execution in linux
+Now, save this line in a file called `hello.sh`.
 
-Unlike in Windows, Linux does not allow a script to execute just because its file extension is `.sh` or `.py`. To execute a script, you need to take 1 of the following 2 steps. Try both for learning purposes.
+**Try to run it:**
+```bash
+./hello.sh
+```
+You might see an error: `Permission denied`. That's normal!
 
-1. Execute it with bash command. `$ bash ./hello.sh`
-2. Add something called 'shebang' to the script, make the file executable and then execute it.
-    1. Add `#!/bin/bash` as the first line of the `hello.sh`
-    2. Give execute permission to `hello.sh` file by running `$ chmod +x ./hello.sh`
-    3. Execute the script again `$ ./hello.sh`
+---
 
-You should be able to see the output now. We will learn about shebang in detail later. Feel free to prompt/search about it.
+### How to Run Scripts in Linux
+
+Linux doesn't run scripts just because they end with `.sh`. You need to do one of these:
+
+1. Run it with bash:
+   ```bash
+   bash ./hello.sh
+   ```
+2. Make it executable:
+   - Add this as the first line in `hello.sh`:
+     ```bash
+     #!/bin/bash
+     ```
+   - Give it permission to run:
+     ```bash
+     chmod +x ./hello.sh
+     ```
+   - Now run it:
+     ```bash
+     ./hello.sh
+     ```
+
+You should see the output now!
+
+---
+
+Feel free to ask questions or search online if you're curious about anything, like what "shebang" means.
+
+Happy coding!
