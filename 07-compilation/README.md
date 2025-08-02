@@ -1,46 +1,85 @@
-https://clang.llvm.org/docs/ClangCommandLineReference.html#preprocessor-options
 
-Prepare the main.cpp from 01.
-Then run the below command. It runs the preprocessor only and outputs the result to main.ii.
+# Step-by-Step: How a C++ Program Gets Compiled (Beginner Friendly)
 
+Let's see how your C++ code (main.cpp) is turned into something your computer can run, using clang++. We'll break it down into simple steps.
+
+---
+
+## 1. Preprocessing
+
+The first step is to run the preprocessor. This expands all the `#include` and `#define` statements in your code.
+
+**Command:**
 ```bash
-clang++ --preprocess main.cpp -o main.ii
+clang++ -E main.cpp -o main.ii
 ```
-From the docs:
--E, --preprocess
-Only run the preprocessor
+**What happens?**
+- This creates a file called `main.ii`.
+- `main.ii` is just your code with all the includes and macros expanded. It still looks like C++ code, but much longer!
 
-The output is main.ii. This file contains all the declarations of iostream. Means, now the main method we wrote "knows how to call/use" the std::cout and std::cin. But it cannot do those operations yet.
+---
 
-Now run the command to create assembly source code file.
+## 2. Compiling to Assembly
+
+Next, we turn the preprocessed code into assembly language, which is a low-level language closer to what the computer understands.
+
+**Command:**
 ```bash
-clang++ --assemble main.ii -o main.s
+clang++ -S main.ii -o main.s
 ```
-From the docs:
--S, --assemble
-Only run preprocess and compilation steps
+**What happens?**
+- This creates a file called `main.s`.
+- `main.s` is written in assembly language. It's not easy to read unless you know assembly, but it's still text.
 
-The output is main.s. This file is just like the main.cpp we wrote. main.cpp was source code for clang++, and this main.s file is source for something called the "assembler". The assembler can take in english like source code written in assembly and produce binary files that can be understood by machines. For obvious reasons, its not human readable and you need a hex editor to inspect the contents of this file. The main method we wrote is now converted into assembly. It still only knows that 2 things named cout and cin exists, and still our assembly code does not know how to perform those actions, i.e, how to take data from keyboard keystrokes and how to send "Hello, C++" to screen.
+---
 
+## 3. Assembling to Object Code
 
-Now we will compile the assembly source file using the assembler that comes with clang++.
+Now, we turn the assembly code into machine code (object file). This is what the computer actually understands, but it's not yet a full program.
+
+**Command:**
 ```bash
-clang++ --compile main.s -o main.o
+clang++ -c main.s -o main.o
 ```
-From the docs:
--c, --compile
-Only run preprocess, compile, and assemble steps
+**What happens?**
+- This creates a file called `main.o`.
+- `main.o` is a binary file (not human-readable). It contains your code in machine language, but it can't run by itself yet.
 
-This step will produce main.o. Its no longer human readable in any manner. You cannot open this file in notepad or vscode. To open this you need special tool called hex editor. Microsoft has one available in the vscode marketplace so that you can open files like main.o in vscode itself. You can try it. Even though main.o is machine code, it still does not know how to performs the actions std::cout and std::cin yet. And because of that, we cannot execute it yet.
+---
 
+## 4. Linking
 
-Now the last step - Linking. We will take the standard library and link it with our main.o using the linker that comes with clang++.
+The last step is to link your object file with the C++ standard library. This adds all the code needed for things like `std::cout` and `std::cin` to work.
+
+**Command:**
 ```bash
 clang++ main.o -o hello
 ```
+**What happens?**
+- This creates an executable file called `hello`.
+- Now your program knows how to print to the screen and read from the keyboard, because it has all the necessary code from the standard library.
 
-The binary instructions machines use to print to screen and read from keyboard are available in standard library in ready to use form. This command takes that ready to use instructions and add it to our main.o, giving it the capabilities to write to screen and read from keyboard. Our program is now ready for execution.
+---
 
+## 5. Run Your Program
+
+**Command:**
 ```bash
 ./hello
 ```
+You should see your program's output!
+
+---
+
+**Summary:**
+1. Preprocess: `main.cpp` → `main.ii`
+2. Compile: `main.ii` → `main.s`
+3. Assemble: `main.s` → `main.o`
+4. Link: `main.o` + standard library → `hello`
+5. Run: `./hello`
+
+You can do all these steps in one go with just:
+```bash
+clang++ main.cpp -o hello
+```
+But breaking it down helps you understand what happens at each stage!
