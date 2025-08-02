@@ -1,0 +1,5 @@
+2018: Yoshua Bengio, Geoffrey Hinton, Yann LeCun
+2019: Edwin E. Catmull, Patrick M. Hanrahan
+2020: Alfred Vaino Aho, Jeffrey David Ullman
+2021: Jack Dongarra
+2022: Bob Metcalfe
