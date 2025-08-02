@@ -40,21 +40,15 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-Give compilation of the command as an exercise. 
+Give compilation of the command as an exercise. (Try compiling the above source yourself. Output program should be `onlinetaxi_env`)
 execute the program 
-    with only MYTAXI_USER set, 
-    with only MYTAXI_PICKUP_LOCATION set,
-    with only MYTAXI_DESTINATION_LOCATION,
-    with all three set,
-    with none of these 3 set
+1. with only MYTAXI_USER set, 
+1. with only MYTAXI_PICKUP_LOCATION set,
+1. with only MYTAXI_DESTINATION_LOCATION,
+1. with all three set,
+1. with none of these 3 set
  
 explain shell sessions, ~/.bashrc and /etc/environment
 
-explain system environment variables PATH,LD_LIBRARY_PATH,HOME,SHELL,LANG,PWD,USER,HOSTNAME,UID
+explain system environment variables ,USER,HOSTNAME,UID,PATH,LD_LIBRARY_PATH,HOME,SHELL,LANG,PWD
 explain export PATH=$PATH:.
-TODO: https://chatgpt.com/share/68881a30-652c-8002-b5b9-5bb04e824fb2
-
-TODO: use echo command to print env variable
-
-TODO: test the following cpp code
-
