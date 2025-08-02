@@ -11,11 +11,19 @@ Below is a simple C++ program that parses command line arguments and prints them
 ```cpp
 #include <iostream>
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[])
+{
     std::cout << "Argument count: " << argc << std::endl;
+    std::cout << "Program name: " << argv[0] << std::endl;
+    if (argc < 2)
+    {
+        std::cout << "No additional arguments provided." << std::endl;
+        return 0;
+    }
     std::cout << "Arguments:" << std::endl;
-    for (int i = 0; i < argc; ++i) {
-        std::cout << argv[i] << std::endl;
+    for (int i = 1; i < argc; ++i)
+    {
+        std::cout << '\t' << argv[i] << std::endl;
     }
     return 0;
 }
