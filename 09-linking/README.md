@@ -14,7 +14,10 @@ There are two main types:
 TODO: relocation_demo.md
 
 `readelf` is a command-line tool on Linux used to display information about ELF (Executable and Linkable Format) files, such as executables, object files, and shared libraries. It can show headers, sections, symbols, relocation entries, and more, helping you inspect how binaries are structured and linked.
-Example usage:
-readelf -h main      # Show ELF header
+Example usage: 
+clang++ hello.cpp -o hello
+readelf -h hello           # ELF header
+readelf -S hello           # Section headers
+readelf -l hello           # Program headers
+readelf -s hello | grep main  # Locate the main symbol
 readelf -r main.o    # Show relocation entries
-readelf -s main      # Show symbol table
