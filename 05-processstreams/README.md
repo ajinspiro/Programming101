@@ -38,3 +38,5 @@ You can combine them as needed. For example, to redirect stdout to one file and 
 ```bash
 ./streams_demo > out.txt 2> err.txt
 ```
+
+TODO: explain ./lower < input.txt > output.txt (PGM 9 CD_Learn GNULinux.pdf)
