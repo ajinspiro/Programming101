@@ -52,3 +52,6 @@ explain shell sessions, ~/.bashrc and /etc/environment
 
 explain system environment variables ,USER,HOSTNAME,UID,PATH,LD_LIBRARY_PATH,HOME,SHELL,LANG,PWD
 explain export PATH=$PATH:.
+
+Using Environment Vars for More Portable Code (Jacob Sorber)
+https://www.youtube.com/watch?v=Ne1H45j3Cjk
