@@ -4,7 +4,7 @@ Let's learn how to make a computer say hello! We'll do this using a shell script
 
 ---
 
-Bash is a simple way to tell your computer what to do using commands. The `echo` command prints text to the screen.
+Bash script is a simple way to tell your computer what to do using commands. The `echo` command prints text to the screen.
 
 Try this in your terminal:
 ```bash

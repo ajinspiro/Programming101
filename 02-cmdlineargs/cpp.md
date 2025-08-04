@@ -4,8 +4,6 @@ Programs like the "hello world" example we compiled earlier are simple and usefu
 
 There are different ways a program can get input from the user. In this lesson, we'll learn about command line arguments.
 
-## 1. C++ Program
-
 Below is a simple C++ program that parses command line arguments and prints them. We will use the argc (argument count) and argv (argument vector) parameters of the main method for this. Save it as `main.cpp`:
 
 ```cpp
@@ -101,3 +99,5 @@ This time try compiling the above source yourself. Output program should be `onl
 ```sh
 ./mytaxi --MYTAXI_USERNAME=arun --MYTAXI_LOCATION=bangalore
 ```
+
+Happy coding!
