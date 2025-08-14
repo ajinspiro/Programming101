@@ -23,7 +23,7 @@ for arg in "$@"; do
 done
 ```
 
-**Try making the script executable yourself. Take a peek at 01-hello/bash.md if necessary.**
+**Try making the script executable yourself. Take a peek at hello-bash.md if necessary.**
 
 **Try running the script in the following ways**
 ```bash
@@ -52,5 +52,5 @@ echo "Third argument (\$3): $3"
 
 It's possible to check if a positional command line variable is defined and if not use a default value. 
 Try that out as an exercise.
- 
+
 Happy coding!
