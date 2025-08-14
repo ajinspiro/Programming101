@@ -1,42 +1,92 @@
+# Bash I/O Redirection with C++
 
-in 01, we printed some text to screen. in this lesson we will understand a little bit of what happened underneath. file descriptors and 3 process streams. stdin stdout stderr. demo them here
+Explore how Bash redirects input and output streams—**stdin**, **stdout**, and **stderr**—using a simple C++ demo.
 
-1. compile the program as `streams_demo`.
+## Demo: Streams in C++
 
-2. execute the program to understand how it works `./streams_demo`
+1. Save the below file as `main.cpp`.
+    ```cpp
+    #include <iostream>
+    #include <string>
 
-Now lets learn about I/O redirection.
+    int main() {
+        std::string name;
+        int age;
 
-I/O redirection in bash allows you to control where input comes from and where output goes. Here are the basics:
+        // Demonstrate stdin (standard input)
+        std::cout << "Enter your name: ";
+        std::getline(std::cin, name); // Reads the entire line, including spaces
 
-Redirects stdout (standard output) to a file (overwrites):
-```bash
-./streams_demo > output.txt
+        // Demonstrate stdout (standard output)
+        std::cout << "Hello, " << name << "! Enter your age: ";
+        std::cin >> age;
+
+        if (age < 0) {
+            // Demonstrate stderr (standard error)
+            std::cerr << "Error: Age cannot be negative!\n";
+            return 1;
+        }
+
+        std::cout << "You are " << age << " years old.\n";
+        return 0;
+    }
+
+    ```
+2. Compile:
+    ```bash
+    clang++ streams_demo.cpp -o streams_demo
+    ```
+3. Run:
+    ```bash
+    ./streams_demo
+    ```
+
+## Common Redirection Examples
+
+- Overwrite **stdout**:
+  ```bash
+  ./streams_demo > output.txt
+  ```
+- Append **stdout**:
+  ```bash
+  ./streams_demo >> output.txt
+  ```
+- Redirect **stderr**:
+  ```bash
+  ./streams_demo 2> error.txt
+  ```
+- Redirect both **stdout** and **stderr**:
+  ```bash
+  ./streams_demo &> all_output.txt
+  ```
+- Use file as **stdin**:
+  ```bash
+  ./streams_demo < input.txt
+  ```
+- Separate **stdout** and **stderr**:
+  ```bash
+  ./streams_demo > out.txt 2> err.txt
+  ```
+
+## Combined Redirection Example
+
+Save the below source as `main.cpp`.
+```cpp
+#include <stdio.h>
+#include <ctype.h>
+int main(){
+    int c;
+    while ( ( c = getchar() ) != EOF )
+    putchar(toupper(c));
+    return 0;
+}
 ```
 
-Appends stdout to a file:
+Compile:
 ```bash
-./streams_demo >> output.txt
+clang++ main.cpp -o upper
 ```
-
-2> Redirects stderr (standard error) to a file:
+Run `upper` program with redirected input and output:
 ```bash
-./streams_demo 2> error.txt
+./upper < input.txt > output.txt
 ```
-
-&> Redirects both stdout and stderr to a file:
-```bash
-./streams_demo &> all_output.txt
-```
-
-< Redirects stdin (standard input) from a file:
-```bash
-./streams_demo < input.txt
-```
-
-You can combine them as needed. For example, to redirect stdout to one file and stderr to another:
-```bash
-./streams_demo > out.txt 2> err.txt
-```
-
-TODO: explain ./lower < input.txt > output.txt (PGM 9 CD_Learn GNULinux.pdf)
