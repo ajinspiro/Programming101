@@ -7,7 +7,7 @@ int main() {
 
     // Demonstrate stdin (standard input)
     std::cout << "Enter your name: ";
-    std::getline(std::cin, name);
+    std::getline(std::cin, name); // Reads the entire line, including spaces
 
     // Demonstrate stdout (standard output)
     std::cout << "Hello, " << name << "! Enter your age: ";
