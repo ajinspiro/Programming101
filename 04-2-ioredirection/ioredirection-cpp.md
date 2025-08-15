@@ -34,7 +34,7 @@ Explore how Bash redirects input and output streams—**stdin**, **stdout**, and
     ```
 2. Compile:
     ```bash
-    clang++ streams_demo.cpp -o streams_demo
+    clang++ main.cpp -o streams_demo
     ```
 3. Run:
     ```bash
