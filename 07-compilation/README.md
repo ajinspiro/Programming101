@@ -11,7 +11,7 @@ The first step is to run the preprocessor. This expands all the `#include` and `
 
 **Command:**
 ```bash
-clang++ -E main.cpp -o main.ii
+clang++ --preprocess main.cpp -o main.ii
 ```
 **What happens?**
 - This creates a file called `main.ii`.
@@ -25,7 +25,7 @@ Next, we turn the preprocessed code into assembly language, which is a low-level
 
 **Command:**
 ```bash
-clang++ -S main.ii -o main.s
+clang++ --assemble main.ii -o main.s
 ```
 **What happens?**
 - This creates a file called `main.s`.
@@ -39,7 +39,7 @@ Now, we turn the assembly code into machine code (object file). This is what the
 
 **Command:**
 ```bash
-clang++ -c main.s -o main.o
+clang++ --compile main.s -o main.o
 ```
 **What happens?**
 - This creates a file called `main.o`.
