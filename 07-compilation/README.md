@@ -5,6 +5,17 @@ Let's see how your C++ code (main.cpp) is turned into something your computer ca
 
 ---
 
+Save the below code as `main.cpp`.
+```cpp
+#include <iostream>
+
+int main(int argc, char **argv)
+{
+    std::cout << "Hello, C++" << std::endl;
+    return 0;
+}
+```
+
 ## 1. Preprocessing
 
 The first step is to run the preprocessor. This expands all the `#include` and `#define` statements in your code.
